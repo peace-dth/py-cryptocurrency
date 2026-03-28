@@ -11,7 +11,7 @@ def test_buy_more_cryptocurrency() -> None:
 
 def test_sell_all_your_cryptocurrency() -> None:
     with (
-        patch("app.main.get_exchange_rate_prediction", return_value=95)
+        patch("app.main.get_exchange_rate_prediction", return_value=94)
     ):
         assert cryptocurrency_action(100) == "Sell all your cryptocurrency"
 
