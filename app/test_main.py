@@ -16,8 +16,15 @@ def test_sell_all_your_cryptocurrency() -> None:
         assert cryptocurrency_action(100) == "Sell all your cryptocurrency"
 
 
-def test_do_nothing_with_cryptocurrency() -> None:
+def test_do_nothing_with_cryptocurrency_5_higher() -> None:
     with (
         patch("app.main.get_exchange_rate_prediction", return_value=105)
+    ):
+        assert cryptocurrency_action(100) == "Do nothing"
+
+
+def test_do_nothing_with_cryptocurrency_5_lower() -> None:
+    with (
+        patch("app.main.get_exchange_rate_prediction", return_value=95)
     ):
         assert cryptocurrency_action(100) == "Do nothing"
